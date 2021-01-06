@@ -9,6 +9,9 @@ import UIKit
 
 class MemoFormVC: UIViewController {
     var subject: String!
+    
+    var x = "wow"
+    
     @IBOutlet weak var contents: UITextView!
     @IBOutlet weak var preview: UIImageView!
 
@@ -47,13 +50,32 @@ class MemoFormVC: UIViewController {
     
     // 카메라 버튼을 클릭했을 때 호출되는 메소드
     @IBAction func pick(_ sender: Any) {
-        let picker = UIImagePickerController()
-        
-        picker.delegate = self
-        picker.allowsEditing = true
-        
-        // 이미지 피커 화면 나타내기
-        self.present(picker, animated: true, completion: nil)
+        let alert = UIAlertController(title: nil, message: "이미지를 가져올 곳을 선택해주세요", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "카메라", style: .default){(_) in
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.delegate = self
+            picker.allowsEditing = true
+            
+            self.present(picker, animated: true, completion: nil)
+        })
+        alert.addAction(UIAlertAction(title: "저장앨범", style: .default){(_) in
+            let picker = UIImagePickerController()
+            picker.sourceType = .savedPhotosAlbum
+            picker.delegate = self
+            picker.allowsEditing = true
+            
+            self.present(picker, animated: true, completion: nil)
+        })
+        alert.addAction(UIAlertAction(title: "사진 라이브러리", style: .default){(_) in
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.delegate = self
+            picker.allowsEditing = true
+            
+            self.present(picker, animated: true, completion: nil)
+        })
+        self.present(alert, animated: true)
     }
 }
 
