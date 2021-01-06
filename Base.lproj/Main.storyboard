@@ -140,10 +140,63 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="kzb-9b-16h" kind="show" identifier="read_sg" id="VdQ-x4-WXO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AH9-Tr-ATR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="799.20000000000005" y="134.48275862068968"/>
+        </scene>
+        <!--상세화면-->
+        <scene sceneID="kYd-Nh-Wea">
+            <objects>
+                <viewController title="상세화면" id="kzb-9b-16h" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mUi-bk-HRN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Z3-bY-lCX">
+                                <rect key="frame" x="16" y="60" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="QL4-vP-LdN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UN-Cw-rLn">
+                                <rect key="frame" x="16" y="101" width="343" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KH9-Yq-Uls">
+                                <rect key="frame" x="16" y="137" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="3AV-dp-Xrb"/>
+                                    <constraint firstAttribute="height" constant="250" id="e1P-dv-JGO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rmu-lj-V3n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7UN-Cw-rLn" firstAttribute="leading" secondItem="Rmu-lj-V3n" secondAttribute="leading" constant="16" id="HDK-RN-Q4q"/>
+                            <constraint firstItem="7UN-Cw-rLn" firstAttribute="top" secondItem="4Z3-bY-lCX" secondAttribute="bottom" constant="20" id="JId-f6-IKb"/>
+                            <constraint firstItem="4Z3-bY-lCX" firstAttribute="leading" secondItem="Rmu-lj-V3n" secondAttribute="leading" constant="16" id="P9C-6h-oxZ"/>
+                            <constraint firstItem="KH9-Yq-Uls" firstAttribute="top" secondItem="7UN-Cw-rLn" secondAttribute="bottom" constant="20" id="SyN-ug-ENV"/>
+                            <constraint firstItem="4Z3-bY-lCX" firstAttribute="top" secondItem="Rmu-lj-V3n" secondAttribute="top" constant="16" id="W8Q-A0-Qsd"/>
+                            <constraint firstItem="KH9-Yq-Uls" firstAttribute="leading" secondItem="Rmu-lj-V3n" secondAttribute="leading" constant="16" id="cjP-hW-pnC"/>
+                            <constraint firstItem="Rmu-lj-V3n" firstAttribute="trailing" secondItem="4Z3-bY-lCX" secondAttribute="trailing" constant="16" id="hxY-Kv-mlo"/>
+                            <constraint firstItem="Rmu-lj-V3n" firstAttribute="trailing" secondItem="7UN-Cw-rLn" secondAttribute="trailing" constant="16" id="uDU-NU-gej"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="bx7-Uq-RH1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="doM-j7-1v9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797.60000000000002" y="918.89055472263874"/>
         </scene>
         <!--메모 작성-->
         <scene sceneID="m4X-D0-297">
