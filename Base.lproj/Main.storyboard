@@ -11,8 +11,8 @@
         <!--목록-->
         <scene sceneID="RyJ-LU-NOA">
             <objects>
-                <tableViewController id="es7-T2-cbS" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lti-NW-aJq">
+                <tableViewController id="es7-T2-cbS" customClass="MemoListVC" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lti-NW-aJq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -22,7 +22,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="memoCell" rowHeight="80" id="Osc-HX-fmv">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="memoCell" rowHeight="80" id="Osc-HX-fmv" customClass="MemoCell" customModule="MyMemory" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Osc-HX-fmv" id="Mae-aT-a9z">
@@ -69,8 +69,13 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="Ith-To-jo0" secondAttribute="trailing" constant="70" id="ynZ-aj-9mr"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contents" destination="5vl-EW-PS1" id="NKA-c8-bBR"/>
+                                    <outlet property="regdate" destination="cv2-gd-NCU" id="1Or-cM-nBC"/>
+                                    <outlet property="subject" destination="Ith-To-jo0" id="L7R-Ry-bfS"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="memoCellWithImage" rowHeight="80" id="KfU-sG-v7L">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="memoCellWithImage" rowHeight="80" id="KfU-sG-v7L" customClass="MemoCell" customModule="MyMemory" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KfU-sG-v7L" id="Z1e-Vf-fHX">
@@ -126,6 +131,12 @@
                                         <constraint firstItem="AyF-v3-uDc" firstAttribute="top" secondItem="Z1e-Vf-fHX" secondAttribute="topMargin" constant="10" id="yUV-Mn-c9y"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contents" destination="hEE-Xg-3lx" id="Di1-SW-2da"/>
+                                    <outlet property="img" destination="HNM-BP-9bo" id="5Pk-Ra-ErJ"/>
+                                    <outlet property="regdate" destination="AyF-v3-uDc" id="QWP-ot-Pja"/>
+                                    <outlet property="subject" destination="sTj-O9-eXA" id="0cV-oT-5R4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -151,7 +162,7 @@
         <!--상세화면-->
         <scene sceneID="kYd-Nh-Wea">
             <objects>
-                <viewController title="상세화면" id="kzb-9b-16h" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoRead" title="상세화면" id="kzb-9b-16h" customClass="MemoReadVC" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mUi-bk-HRN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,6 +204,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="bx7-Uq-RH1"/>
+                    <connections>
+                        <outlet property="contents" destination="7UN-Cw-rLn" id="BwK-H8-yRx"/>
+                        <outlet property="img" destination="KH9-Yq-Uls" id="d9a-6d-eZR"/>
+                        <outlet property="subject" destination="4Z3-bY-lCX" id="V3N-SS-fkc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doM-j7-1v9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,20 +217,23 @@
         <!--메모 작성-->
         <scene sceneID="m4X-D0-297">
             <objects>
-                <viewController id="sNn-q7-Wlp" sceneMemberID="viewController">
+                <viewController id="sNn-q7-Wlp" customClass="MemoFormVC" customModule="MyMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M2R-YQ-lcJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LlD-Uo-O8D">
-                                <rect key="frame" x="16" y="54" width="343" height="250"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LlD-Uo-O8D">
+                                <rect key="frame" x="16" y="64" width="343" height="250"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="h0b-d9-k3A"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tvn-KR-VCe">
-                                <rect key="frame" x="16" y="326" width="250" height="250"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tvn-KR-VCe">
+                                <rect key="frame" x="16" y="329" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="Zdb-L6-1KH"/>
                                     <constraint firstAttribute="height" constant="250" id="eFk-tC-UZC"/>
@@ -233,10 +252,22 @@
                     </view>
                     <navigationItem key="navigationItem" title="메모 작성" id="xWt-xK-578">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="camera" id="4Zs-4J-Lmg"/>
-                            <barButtonItem title="저장" id="Erp-zg-iOb"/>
+                            <barButtonItem systemItem="camera" id="4Zs-4J-Lmg">
+                                <connections>
+                                    <action selector="pick:" destination="sNn-q7-Wlp" id="D7u-So-uC0"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="저장" id="Erp-zg-iOb">
+                                <connections>
+                                    <action selector="save:" destination="sNn-q7-Wlp" id="QAV-9B-dsN"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contents" destination="LlD-Uo-O8D" id="oKH-We-jbR"/>
+                        <outlet property="preview" destination="Tvn-KR-VCe" id="bqy-JW-LPd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHN-VF-23F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,11 +294,11 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
