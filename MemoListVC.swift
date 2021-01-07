@@ -7,6 +7,10 @@
 
 import UIKit
 
+// 옵셔널 처리해야할 곳. 처리를 어떻게 해야할지 고민 중
+// 1. AppDelegate 객체 다운캐스팅
+// 2. 재사용 큐에서 꺼낸 셀 다운 캐스팅
+// 3. 셀 데이터 소스의 row.regdate 포스 언랩핑하는 부분
 class MemoListVC: UITableViewController {
     // 앱 델리게이트 객체의 참조 정보 읽어오기
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
