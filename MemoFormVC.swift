@@ -10,17 +10,19 @@ import UIKit
 class MemoFormVC: UIViewController {
     var subject: String!
     
-    @IBOutlet weak var contents: UITextView?
-    @IBOutlet weak var preview: UIImageView?
+    var x = "wow"
     
+    @IBOutlet weak var contents: UITextView!
+    @IBOutlet weak var preview: UIImageView!
+
     override func viewDidLoad() {
-        self.contents?.delegate = self
+        self.contents.delegate = self
     }
     
     // 저장 버튼을 클릭했을 때 호출되는 메소드
     @IBAction func save(_ sender: Any) {
         // 내용을 입력하지 않았을 경우 경고한다
-        guard self.contents?.text?.isEmpty == false else {
+        guard self.contents.text?.isEmpty == false else {
             let alert = UIAlertController(title: nil, message: "내용을 입력해주세요", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -31,11 +33,11 @@ class MemoFormVC: UIViewController {
         let data = MemoData()
         
         data.title = self.subject // 제목
-        data.contents = self.contents?.text // 내용
+        data.contents = self.contents.text // 내용
 //        NSLog("제목의 길이: \(self.subject.count)")
 //        NSLog("콘텐츠: \(self.contents.text as NSString)")
 //        data.contents = (self.contents.text as NSString).substring(from: self.subject.count) // 내용
-        data.image = self.preview?.image // 이미지
+        data.image = self.preview.image // 이미지
         data.regdate = Date() // 작성 시각
         
         // 앱 델리게이트 객체를 읽어온 다음, memolist 배열에 MemoData 객체를 추가
@@ -82,7 +84,7 @@ extension MemoFormVC: UIImagePickerControllerDelegate {
     // 사용자가 이미지를 선택하면 자동으로 호출되는 메소드
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 선택된 이미지를 미리보기에 출력
-        self.preview?.image = info[.editedImage] as? UIImage
+        self.preview.image = info[.editedImage] as? UIImage
         
         // 이미지 피커 컨트롤러를 닫기
         picker.dismiss(animated: true, completion: nil)
