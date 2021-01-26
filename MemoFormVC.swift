@@ -10,13 +10,27 @@ import UIKit
 class MemoFormVC: UIViewController {
     var subject: String!
     
-    var x = "wow"
     
     @IBOutlet weak var contents: UITextView!
     @IBOutlet weak var preview: UIImageView!
 
     override func viewDidLoad() {
         self.contents.delegate = self
+        
+        // 배경 이미지 설정
+        let bgImage = UIImage(named: "memo-background.png")!
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
+        
+        // 텍스트 뷰의 기본 속성
+        self.contents.layer.borderWidth = 0
+        self.contents.layer.borderColor = UIColor.clear.cgColor
+        self.contents.backgroundColor = UIColor.clear
+        
+        // 줄 간격
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 9
+        self.contents.attributedText = NSAttributedString(string: " ", attributes: [.paragraphStyle: style])
+        self.contents.text = ""
     }
     
     // 저장 버튼을 클릭했을 때 호출되는 메소드
@@ -34,9 +48,6 @@ class MemoFormVC: UIViewController {
         
         data.title = self.subject // 제목
         data.contents = self.contents.text // 내용
-//        NSLog("제목의 길이: \(self.subject.count)")
-//        NSLog("콘텐츠: \(self.contents.text as NSString)")
-//        data.contents = (self.contents.text as NSString).substring(from: self.subject.count) // 내용
         data.image = self.preview.image // 이미지
         data.regdate = Date() // 작성 시각
         
@@ -76,6 +87,16 @@ class MemoFormVC: UIViewController {
             self.present(picker, animated: true, completion: nil)
         })
         self.present(alert, animated: true)
+    }
+    
+    // 내비게이션 바의 토글 처리
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let bar = self.navigationController?.navigationBar
+        
+        let ts = TimeInterval(0.3)
+        UIView.animate(withDuration: ts){
+            bar?.alpha = (bar?.alpha == 0 ? 1 : 0)
+        }
     }
 }
 
