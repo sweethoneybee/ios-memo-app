@@ -57,4 +57,24 @@ class MemoListVC: UITableViewController {
         // 테이블 데이터를 다시 읽어들인다. 이에 따라 행을 구성하는 로직이 다시 실행됨
         self.tableView.reloadData()
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // SWRevealViewController 라이브러리의 revealViewController 객체를 읽어온다
+        if let revealVC = self.revealViewController() {
+            
+            // 바 버튼 아이템 객체를 정의한다
+            let btn = UIBarButtonItem()
+            btn.image = UIImage(named: "sidemenu.png") // 이미지 설정
+            btn.target = revealVC
+            btn.action = #selector(revealVC.revealToggle(_:))
+            
+            // 정의된 바 버튼을 내비게이션 바의 왼쪽 아이템으로 등록한다
+            self.navigationItem.leftBarButtonItem = btn
+            
+            // 제스쳐 객체를 뷰에 추가
+            self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
+        }
+    }
 }
